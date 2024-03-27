@@ -1,6 +1,5 @@
 import time
 import secrets
-import random
 
 class KeyGen:
 
@@ -58,8 +57,8 @@ class KeyGen:
 	# Generate an integer
 	def generateInt(self):
 		seed = int.from_bytes(self.pool, byteorder='big', signed=False)
-		random.seed(seed)
-		return random.getrandbits(self.bytes * 8)
+		secrets.SystemRandom().seed(seed)
+		return secrets.SystemRandom().getrandbits(self.bytes * 8)
 
 	# Generate the final key
 	def generateKey(self):

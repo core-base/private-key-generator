@@ -1,4 +1,3 @@
-import random
 import secrets
 
 # Generate private_key using secrets library
@@ -12,7 +11,7 @@ def usingSecrets():
 
 # Generate private_key using random library (using current time, not secure)
 def usingRandom():
-    bits = random.getrandbits(256)
+    bits = secrets.SystemRandom().getrandbits(256)
     bits_hex = hex(bits)
     private_key = bits_hex[2:]
     while(len(private_key) < 64):
